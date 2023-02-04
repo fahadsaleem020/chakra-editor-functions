@@ -1,1 +1,1 @@
-# Types for retap
+# functions for retap editor

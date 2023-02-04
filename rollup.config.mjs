@@ -1,6 +1,7 @@
 import typescript from "rollup-plugin-typescript2";
-import { defineConfig } from "rollup";
 import terser from "@rollup/plugin-terser";
+import { defineConfig } from "rollup";
+import { externals } from "rollup-plugin-node-externals";
 import dts from "rollup-plugin-dts";
 import pkg from "./package.json" assert { type: "json" };
 
@@ -16,6 +17,7 @@ export default defineConfig([
 
     plugins: [
       terser(),
+      externals(),
       typescript({
         tsconfig: "./tsconfig.json",
         tsconfigOverride: {
