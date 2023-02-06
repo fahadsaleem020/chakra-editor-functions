@@ -16,7 +16,7 @@
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
-    "build": "rollup -c",
+    "build": "rollup -c && npm pack --dry-run",
     "semantic-release": "semantic-release",
     "commit": "cz"
   },

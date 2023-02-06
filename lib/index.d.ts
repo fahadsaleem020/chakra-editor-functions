@@ -1,1 +1,529 @@
-const e=(e,t)=>{var o=new FileReader;o.onloadend=()=>t(o.result),o.readAsDataURL(e)},t=(e,t,o=`A plugin is required for this operation. \ntrying to call: ${t}`)=>{if(t in e)return e;throw new Error(o)},o=({editor:e,nodeOrMark:t,attribute:o})=>e.getAttributes(t)[o],i=({editor:e})=>t(e.chain().focus(),"toggleBold").toggleBold().run(),r=({editor:e})=>t(e.chain().focus(),"toggleCodeBlock").toggleCodeBlock().run(),l=({editor:e})=>t(e.chain().focus(),"setCodeBlock").setCodeBlock().run(),s=({editor:e})=>t(e.chain().focus(),"unsetBlockquote").unsetBlockquote().run(),n=({editor:e})=>t(e.chain().focus(),"toggleCode").toggleCode().run(),a=({editor:e})=>t(e.chain().focus(),"setCode").setCode().run(),u=({editor:e})=>t(e.chain().focus(),"unsetCode").unsetCode().run(),g=({editor:e})=>t(e.chain().focus(),"toggleSubscript").toggleSubscript().run(),d=({editor:e})=>e.chain().focus().sinkListItem("listItem").run(),c=({editor:e})=>e.can().sinkListItem("listItem"),h=({editor:e})=>e.chain().focus().liftListItem("listItem").run(),f=({editor:e})=>e.can().liftListItem("listItem"),m=({editor:e,fontfamily:o="arial"})=>t(e.chain().focus(),"setFontFamily").setFontFamily(o).run(),C=({editor:e,fontSize:o})=>t(e.chain().focus(),"setFontSize",'Please import "FontSize" extension').setFontSize(o).run(),A=({editor:e})=>o({editor:e,nodeOrMark:"textStyle",attribute:"fontSize"})?.split("px").at(0),k=({editor:e,sources:o,src:i,title:r})=>t(e.chain().focus(),"setVideo",'Please import "Video" extension').setVideo({src:i,sources:o,title:r}).run(),p=({editor:e,...o})=>t(e.chain().focus(),"setYoutubeVideo",'Please import "Youtube" extension').setYoutubeVideo(o).focus().run(),x=({editor:e})=>t(e.chain().unsetAllMarks(),"removeEmptyTextStyle").removeEmptyTextStyle().run(),H=({editor:e,position:o})=>t(e.chain().focus(),"setTextAlign").setTextAlign(o).run(),b=({editor:e})=>t(e.chain().focus(),"unsetTextAlign").unsetTextAlign().run(),S=({editor:e,position:t})=>e.isActive({textAlign:t}),T=({editor:e})=>o({editor:e,nodeOrMark:ke({editor:e,nodeOrMark:"heading"})?"heading":"paragraph",attribute:"textAlign"}),B=({editor:e})=>t(e.chain().unsetAllMarks(),"removeEmptyTextStyle").removeEmptyTextStyle().clearContent().run(),v=({editor:e})=>t(e.chain().focus(),"toggleSuperscript").toggleSuperscript().run(),F=({editor:e})=>t(e.chain().focus(),"toggleItalic").toggleItalic().run(),I=({editor:e})=>t(e.chain().focus(),"toggleStrike").toggleStrike().run(),V=({editor:e})=>t(e.chain().focus(),"toggleUnderline").toggleUnderline().run(),L=({editor:e})=>t(e.chain().focus(),"toggleBlockquote").toggleBlockquote().run(),R=({editor:e})=>t(e.chain().focus(),"setHardBreak").setHardBreak().run(),w=({editor:e})=>t(e.chain().focus(),"undo").undo().run(),y=({editor:e})=>t(e.chain().focus(),"redo").redo().run(),z=({editor:e})=>t(e.chain().focus(),"toggleHighlight").toggleHighlight().run(),O=({editor:e,color:o})=>t(e.chain().focus(),"setHighlight").setHighlight(o?{color:o}:void 0).run(),N=({editor:e})=>t(e.chain().focus(),"unsetHighlight").unsetHighlight().run(),U=({editor:e})=>t(e.chain().focus(),"setHorizontalRule").setHorizontalRule().run(),M=({editor:e,level:o})=>Number(o)?t(e.chain().focus(),"toggleHeading").toggleHeading({level:Number(o)}).run():t(e.chain().focus(),"setParagraph").setParagraph().run(),P=({editor:e})=>e.getAttributes("textStyle").color,E=({editor:e})=>e.getAttributes("highlight").color,q=({editor:e,color:o})=>t(e.chain().focus(),"setColor").setColor(o).run(),Y=({editor:e})=>t(e.chain().focus(),"unsetColor").unsetColor().run(),Q=({editor:e,value:o=25,limit:i=200})=>t(e.chain().focus(),"increaseIndent").increaseIndent(o,i).run(),$=({editor:e,value:o=25})=>t(e.chain().focus(),"decreaseIndent").decreaseIndent(o).run(),D=({editor:e})=>t(e.chain().focus(),"toggleBulletList").toggleBulletList().focus().run(),_=({editor:e})=>t(e.chain().focus(),"toggleOrderedList").toggleOrderedList().run(),j=({editor:e,url:o})=>t(e.chain().focus().extendMarkRange("link"),"setLink").setLink({href:o.includes("https")?o:`https://${o}`,target:"_blank"}).run(),G=({editor:e})=>e.chain().deleteSelection().focus().run(),J=({editor:e,rows:o,columns:i,withHeader:r=!1})=>t(e.chain().focus(),"insertTable").insertTable({rows:o,cols:i,withHeaderRow:r}).run(),K=({editor:e})=>t(e.chain().focus(),"deleteTable").deleteTable().run(),W=({editor:e,nodeOrMark:t})=>e.chain().deleteNode(t).run(),X=({editor:e})=>t(e.chain().focus(),"fixTables").fixTables().run(),Z=({editor:e})=>t(e.chain().focus(),"mergeCells").mergeCells().run(),ee=({editor:e})=>t(e.chain().focus(),"splitCell").splitCell().run(),te=({editor:e})=>t(e.chain().focus(),"mergeOrSplit").mergeOrSplit().run(),oe=({editor:e,cellAttr:o,attrValue:i})=>t(e.chain().focus(),"setCellAttribute").setCellAttribute(o,i).run(),ie=({editor:e})=>t(e.chain().focus(),"goToNextCell").goToNextCell().run(),re=({editor:e})=>t(e.chain().focus(),"goToPreviousCell").goToPreviousCell().run(),le=({editor:e})=>t(e.chain().focus(),"toggleHeaderColumn").toggleHeaderColumn().run(),se=({editor:e})=>t(e.chain().focus(),"toggleHeaderRow").toggleHeaderRow().run(),ne=({editor:e})=>t(e.chain().focus(),"toggleHeaderCell").toggleHeaderCell().run(),ae=({editor:e})=>t(e.chain().focus(),"addColumnBefore").addColumnBefore().run(),ue=({editor:e})=>t(e.chain().focus(),"addColumnAfter").addColumnAfter().run(),ge=({editor:e})=>t(e.chain().focus(),"deleteColumn").deleteColumn().run(),de=({editor:e})=>t(e.chain().focus(),"addRowBefore").addRowBefore().run(),ce=({editor:e})=>t(e.chain().focus(),"addRowAfter").addRowAfter().run(),he=({editor:e})=>t(e.chain().focus(),"deleteRow").deleteRow().run(),fe=({editor:e})=>t(e.chain().extendMarkRange("link"),"unsetLink").unsetLink().run(),me=({editor:e,...o})=>{const{src:i,alt:r,title:l,sources:s}=o;return t(e.chain().focus(),"setImage",'Please import "Image" extension').setImage({src:i,alt:r,title:l}).updateAttributes("image",{sources:s}).run()},Ce=({editor:e})=>e.isActive("heading",{level:1})?1:e.isActive("heading",{level:2})?2:e.isActive("heading",{level:3})?3:e.isActive("heading",{level:4})?4:e.isActive("heading",{level:5})?5:e.isActive("heading",{level:6})?6:"paragraph",Ae=({editor:e})=>e.getAttributes("textStyle").fontFamily,ke=({editor:e,nodeOrMark:t,attributes:o})=>e.isActive(t,o),pe={isExtension:t,toggleBold:i,setHorizontalLine:U,setHardBreak:R,toggleHeading:M,toggleStrike:I,activeHeadingValue:Ce,toggleBulletList:D,toggleNumberedList:_,insertUrl:j,removeUrl:fe,isButtonActive:ke,insertImage:me,toggleItalic:F,toggleUnderline:V,toggleBlockQuote:L,toggleCodeBlock:r,toggleSubscript:g,toggleSuperscript:v,clearFormats:x,clearContents:B,setUndo:w,setRedo:y,setFontColor:q,unsetFontColor:Y,toggleHighlight:z,setHighlightColor:O,unsetHighlightColor:N,insertYoutubeVideo:p,sinkListItem:d,canSink:c,liftListItem:h,canLift:f,getFontColorValue:P,getHighlightColorValue:E,getFontFamilyValue:Ae,setFontFamily:m,setTextAlignment:H,unSetTextAlignment:b,isTextAlignmentValue:S,insertTable:J,deleteSelection:G,getAttributeValue:o,deleteTable:K,fixTables:X,mergeCells:Z,splitCell:ee,mergeOrSplit:te,setCellAttribute:oe,goToNextCell:ie,goToPreviousCell:re,toggleHeaderColumn:le,toggleHeaderRow:se,toggleHeaderCell:ne,insertColumnBefore:ae,insertColumnAfter:ue,deleteColumn:ge,insertRowBefore:de,insertRowAfter:ce,deleteRow:he,deleteNode:W,setFontSize:C,getTextAlignmentValue:T,getFontSizeValue:A,inrceaseTextIndent:Q,decreaseTextIndent:$,toBase64:e,insertVideo:k,toggleCode:n,setCode:a,unsetCode:u};export{Ce as activeHeadingValue,f as canLift,c as canSink,B as clearContents,x as clearFormats,$ as decreaseTextIndent,pe as default,ge as deleteColumn,W as deleteNode,he as deleteRow,G as deleteSelection,K as deleteTable,X as fixTables,o as getAttributeValue,P as getFontColorValue,Ae as getFontFamilyValue,A as getFontSizeValue,E as getHighlightColorValue,T as getTextAlignmentValue,ie as goToNextCell,re as goToPreviousCell,Q as inrceaseTextIndent,ue as insertColumnAfter,ae as insertColumnBefore,me as insertImage,ce as insertRowAfter,de as insertRowBefore,J as insertTable,j as insertUrl,k as insertVideo,p as insertYoutubeVideo,ke as isButtonActive,t as isExtension,S as isTextAlignmentValue,h as liftListItem,Z as mergeCells,te as mergeOrSplit,fe as removeUrl,oe as setCellAttribute,a as setCode,l as setCodeBlock,q as setFontColor,m as setFontFamily,C as setFontSize,R as setHardBreak,O as setHighlightColor,U as setHorizontalLine,y as setRedo,H as setTextAlignment,w as setUndo,d as sinkListItem,ee as splitCell,e as toBase64,L as toggleBlockQuote,i as toggleBold,D as toggleBulletList,n as toggleCode,r as toggleCodeBlock,ne as toggleHeaderCell,le as toggleHeaderColumn,se as toggleHeaderRow,M as toggleHeading,z as toggleHighlight,F as toggleItalic,_ as toggleNumberedList,I as toggleStrike,g as toggleSubscript,v as toggleSuperscript,V as toggleUnderline,s as unSetCodeBlock,b as unSetTextAlignment,u as unsetCode,Y as unsetFontColor,N as unsetHighlightColor};
+import { ButtonFunction, NodeOrMarkList, WithEditor } from "@retap/types";
+import { ChainedCommands } from "@tiptap/react";
+export declare const toBase64: <T extends Blob>(file: T, cb: (result: FileReader["result"]) => any) => void;
+export declare const isExtension: <Property extends string = string, Object_1 extends Record<string, any> = object>(obj: Object_1, prop: Property, errorMessage?: string) => {
+    blur: () => ChainedCommands;
+    clearContent: (emitUpdate?: boolean | undefined) => ChainedCommands;
+    clearNodes: () => ChainedCommands;
+    command: (fn: (props: import("@tiptap/react").CommandProps) => boolean) => ChainedCommands;
+    createParagraphNear: () => ChainedCommands;
+    deleteCurrentNode: () => ChainedCommands;
+    deleteNode: (typeOrName: string | import("prosemirror-model").NodeType) => ChainedCommands;
+    deleteRange: (range: import("@tiptap/react").Range) => ChainedCommands;
+    deleteSelection: () => ChainedCommands;
+    enter: () => ChainedCommands;
+    exitCode: () => ChainedCommands;
+    extendMarkRange: (typeOrName: string | import("prosemirror-model").MarkType, attributes?: Record<string, any> | undefined) => ChainedCommands;
+    first: (commands: import("@tiptap/react").Command[] | ((props: import("@tiptap/react").CommandProps) => import("@tiptap/react").Command[])) => ChainedCommands;
+    focus: (position?: import("@tiptap/react").FocusPosition | undefined, options?: {
+        scrollIntoView?: boolean | undefined;
+    } | undefined) => ChainedCommands;
+    forEach: <T>(items: T[], fn: (item: T, props: import("@tiptap/react").CommandProps & {
+        index: number;
+    }) => boolean) => ChainedCommands;
+    insertContent: (value: import("@tiptap/react").Content, options?: {
+        parseOptions?: import("prosemirror-model").ParseOptions | undefined;
+        updateSelection?: boolean | undefined;
+    } | undefined) => ChainedCommands;
+    insertContentAt: (position: number | import("@tiptap/react").Range, value: import("@tiptap/react").Content, options?: {
+        parseOptions?: import("prosemirror-model").ParseOptions | undefined;
+        updateSelection?: boolean | undefined;
+    } | undefined) => ChainedCommands;
+    joinUp: () => ChainedCommands;
+    joinDown: () => ChainedCommands;
+    joinBackward: () => ChainedCommands;
+    joinForward: () => ChainedCommands;
+    keyboardShortcut: (name: string) => ChainedCommands;
+    lift: (typeOrName: string | import("prosemirror-model").NodeType, attributes?: Record<string, any> | undefined) => ChainedCommands;
+    liftEmptyBlock: () => ChainedCommands;
+    liftListItem: (typeOrName: string | import("prosemirror-model").NodeType) => ChainedCommands;
+    newlineInCode: () => ChainedCommands;
+    resetAttributes: (typeOrName: string | import("prosemirror-model").NodeType | import("prosemirror-model").MarkType, attributes: string | string[]) => ChainedCommands;
+    scrollIntoView: () => ChainedCommands;
+    selectAll: () => ChainedCommands;
+    selectNodeBackward: () => ChainedCommands;
+    selectNodeForward: () => ChainedCommands;
+    selectParentNode: () => ChainedCommands;
+    selectTextblockEnd: () => ChainedCommands;
+    selectTextblockStart: () => ChainedCommands;
+    setContent: (content: import("@tiptap/react").Content, emitUpdate?: boolean | undefined, parseOptions?: import("prosemirror-model").ParseOptions | undefined) => ChainedCommands;
+    setMark: (typeOrName: string | import("prosemirror-model").MarkType, attributes?: Record<string, any> | undefined) => ChainedCommands;
+    setMeta: (key: string, value: any) => ChainedCommands;
+    setNode: (typeOrName: string | import("prosemirror-model").NodeType, attributes?: Record<string, any> | undefined) => ChainedCommands;
+    setNodeSelection: (position: number) => ChainedCommands;
+    setTextSelection: (position: number | import("@tiptap/react").Range) => ChainedCommands;
+    sinkListItem: (typeOrName: string | import("prosemirror-model").NodeType) => ChainedCommands;
+    splitBlock: (options?: {
+        keepMarks?: boolean | undefined;
+    } | undefined) => ChainedCommands;
+    splitListItem: (typeOrName: string | import("prosemirror-model").NodeType) => ChainedCommands;
+    toggleList: (listTypeOrName: string | import("prosemirror-model").NodeType, itemTypeOrName: string | import("prosemirror-model").NodeType) => ChainedCommands;
+    toggleMark: (typeOrName: string | import("prosemirror-model").MarkType, attributes?: Record<string, any> | undefined, options?: {
+        extendEmptyMarkRange?: boolean | undefined;
+    } | undefined) => ChainedCommands;
+    toggleNode: (typeOrName: string | import("prosemirror-model").NodeType, toggleTypeOrName: string | import("prosemirror-model").NodeType, attributes?: Record<string, any> | undefined) => ChainedCommands;
+    toggleWrap: (typeOrName: string | import("prosemirror-model").NodeType, attributes?: Record<string, any> | undefined) => ChainedCommands;
+    undoInputRule: () => ChainedCommands;
+    unsetAllMarks: () => ChainedCommands;
+    unsetMark: (typeOrName: string | import("prosemirror-model").MarkType, options?: {
+        extendEmptyMarkRange?: boolean | undefined;
+    } | undefined) => ChainedCommands;
+    updateAttributes: (typeOrName: string | import("prosemirror-model").NodeType | import("prosemirror-model").MarkType, attributes: Record<string, any>) => ChainedCommands;
+    wrapIn: (typeOrName: string | import("prosemirror-model").NodeType, attributes?: Record<string, any> | undefined) => ChainedCommands;
+    wrapInList: (typeOrName: string | import("prosemirror-model").NodeType, attributes?: Record<string, any> | undefined) => ChainedCommands;
+} & {
+    run: () => boolean;
+} & Record<Property, (...options: any[]) => ChainedCommands>;
+export declare const getAttributeValue: <T>(props: WithEditor & {
+    nodeOrMark: NodeOrMarkList;
+    attribute: string;
+}) => T;
+export declare const toggleBold: ButtonFunction<WithEditor>;
+export declare const toggleCodeBlock: ButtonFunction<WithEditor>;
+export declare const setCodeBlock: ButtonFunction<WithEditor>;
+export declare const unSetCodeBlock: ButtonFunction<WithEditor>;
+export declare const toggleCode: ButtonFunction<WithEditor>;
+export declare const setCode: ButtonFunction<WithEditor>;
+export declare const unsetCode: ButtonFunction<WithEditor>;
+export declare const toggleSubscript: ButtonFunction<WithEditor>;
+export declare const sinkListItem: ButtonFunction<WithEditor>;
+export declare const canSink: ButtonFunction<WithEditor>;
+export declare const liftListItem: ButtonFunction<WithEditor>;
+export declare const canLift: ButtonFunction<WithEditor>;
+export declare const setFontFamily: ButtonFunction<{
+    fontfamily?: string;
+} & WithEditor>;
+export declare const setFontSize: ButtonFunction<WithEditor & {
+    fontSize: string;
+}>;
+export declare const getFontSizeValue: ButtonFunction<WithEditor, string | undefined>;
+export declare const insertVideo: ButtonFunction<WithEditor & {
+    src: string;
+    title: string;
+    sources?: Record<string, string>;
+}>;
+export declare const insertYoutubeVideo: ButtonFunction<{
+    src: string;
+    width?: number;
+    height?: number;
+    start?: number;
+} & WithEditor>;
+export declare const clearFormats: ButtonFunction<WithEditor>;
+export declare const setTextAlignment: ButtonFunction<{
+    position: "left" | "right" | "center" | "justify";
+} & WithEditor>;
+export declare const unSetTextAlignment: ButtonFunction<WithEditor>;
+export declare const isTextAlignmentValue: ButtonFunction<{
+    position: "left" | "right" | "center" | "justify";
+} & WithEditor>;
+export declare const getTextAlignmentValue: ButtonFunction<WithEditor, "justify" | "left" | "right" | "center">;
+export declare const clearContents: ButtonFunction<WithEditor>;
+export declare const toggleSuperscript: ButtonFunction<WithEditor>;
+export declare const toggleItalic: ButtonFunction<WithEditor>;
+export declare const toggleStrike: ButtonFunction<WithEditor>;
+export declare const toggleUnderline: ButtonFunction<WithEditor>;
+export declare const toggleBlockQuote: ButtonFunction<WithEditor>;
+export declare const setHardBreak: ButtonFunction<WithEditor>;
+export declare const setUndo: ButtonFunction<WithEditor>;
+export declare const setRedo: ButtonFunction<WithEditor>;
+export declare const toggleHighlight: ButtonFunction<WithEditor>;
+export declare const setHighlightColor: ButtonFunction<{
+    color?: string;
+} & WithEditor>;
+export declare const unsetHighlightColor: ButtonFunction<WithEditor>;
+export declare const setHorizontalLine: ButtonFunction<WithEditor>;
+export declare const toggleHeading: ButtonFunction<{
+    level: any;
+} & WithEditor>;
+export declare const getFontColorValue: ButtonFunction<WithEditor, string | undefined>;
+export declare const getHighlightColorValue: ButtonFunction<WithEditor, string | undefined>;
+export declare const setFontColor: ButtonFunction<{
+    color: string;
+} & WithEditor>;
+export declare const unsetFontColor: ButtonFunction<WithEditor>;
+export declare const inrceaseTextIndent: ButtonFunction<WithEditor & {
+    value?: number;
+    limit?: number;
+}>;
+export declare const decreaseTextIndent: ButtonFunction<WithEditor & {
+    value?: number;
+}>;
+export declare const toggleBulletList: ButtonFunction<WithEditor>;
+export declare const toggleNumberedList: ButtonFunction<WithEditor>;
+export declare const insertUrl: ButtonFunction<{
+    url: string;
+} & WithEditor>;
+export declare const deleteSelection: ButtonFunction<WithEditor>;
+export declare const insertTable: ButtonFunction<{
+    rows: number;
+    columns: number;
+    withHeader?: boolean;
+} & WithEditor>;
+export declare const deleteTable: ButtonFunction<WithEditor>;
+export declare const deleteNode: ButtonFunction<WithEditor & {
+    nodeOrMark: NodeOrMarkList;
+}>;
+export declare const fixTables: ButtonFunction<WithEditor>;
+export declare const mergeCells: ButtonFunction<WithEditor>;
+export declare const splitCell: ButtonFunction<WithEditor>;
+export declare const mergeOrSplit: ButtonFunction<WithEditor>;
+export declare const setCellAttribute: ButtonFunction<{
+    cellAttr: "colspan" | "rowspan";
+    attrValue: number;
+} & WithEditor>;
+export declare const goToNextCell: ButtonFunction<WithEditor>;
+export declare const goToPreviousCell: ButtonFunction<WithEditor>;
+export declare const toggleHeaderColumn: ButtonFunction<WithEditor>;
+export declare const toggleHeaderRow: ButtonFunction<WithEditor>;
+export declare const toggleHeaderCell: ButtonFunction<WithEditor>;
+export declare const insertColumnBefore: ButtonFunction<WithEditor>;
+export declare const insertColumnAfter: ButtonFunction<WithEditor>;
+export declare const deleteColumn: ButtonFunction<WithEditor>;
+export declare const insertRowBefore: ButtonFunction<WithEditor>;
+export declare const insertRowAfter: ButtonFunction<WithEditor>;
+export declare const deleteRow: ButtonFunction<WithEditor>;
+export declare const removeUrl: ButtonFunction<WithEditor>;
+export declare const insertImage: ButtonFunction<{
+    src: unknown;
+    alt: string;
+    title: string;
+    sources?: Record<string, string>;
+} & WithEditor>;
+export declare const activeHeadingValue: ButtonFunction<WithEditor, 1 | 2 | 3 | 4 | 5 | 6 | "paragraph">;
+export declare const getFontFamilyValue: ButtonFunction<WithEditor, string | undefined>;
+export declare const isButtonActive: ButtonFunction<{
+    nodeOrMark: NodeOrMarkList;
+    attributes?: Record<string, any>;
+} & WithEditor>;
+declare const functions: {
+    isExtension: <Property extends string = string, Object_1 extends Record<string, any> = object>(obj: Object_1, prop: Property, errorMessage?: string) => {
+        blur: () => ChainedCommands;
+        clearContent: (emitUpdate?: boolean | undefined) => ChainedCommands;
+        clearNodes: () => ChainedCommands;
+        command: (fn: (props: import("@tiptap/react").CommandProps) => boolean) => ChainedCommands;
+        createParagraphNear: () => ChainedCommands;
+        deleteCurrentNode: () => ChainedCommands;
+        deleteNode: (typeOrName: string | import("prosemirror-model").NodeType) => ChainedCommands;
+        deleteRange: (range: import("@tiptap/react").Range) => ChainedCommands;
+        deleteSelection: () => ChainedCommands;
+        enter: () => ChainedCommands;
+        exitCode: () => ChainedCommands;
+        extendMarkRange: (typeOrName: string | import("prosemirror-model").MarkType, attributes?: Record<string, any> | undefined) => ChainedCommands;
+        first: (commands: import("@tiptap/react").Command[] | ((props: import("@tiptap/react").CommandProps) => import("@tiptap/react").Command[])) => ChainedCommands;
+        focus: (position?: import("@tiptap/react").FocusPosition | undefined, options?: {
+            scrollIntoView?: boolean | undefined;
+        } | undefined) => ChainedCommands;
+        forEach: <T>(items: T[], fn: (item: T, props: import("@tiptap/react").CommandProps & {
+            index: number;
+        }) => boolean) => ChainedCommands;
+        insertContent: (value: import("@tiptap/react").Content, options?: {
+            parseOptions?: import("prosemirror-model").ParseOptions | undefined;
+            updateSelection?: boolean | undefined;
+        } | undefined) => ChainedCommands;
+        insertContentAt: (position: number | import("@tiptap/react").Range, value: import("@tiptap/react").Content, options?: {
+            parseOptions?: import("prosemirror-model").ParseOptions | undefined;
+            updateSelection?: boolean | undefined;
+        } | undefined) => ChainedCommands;
+        joinUp: () => ChainedCommands;
+        joinDown: () => ChainedCommands;
+        joinBackward: () => ChainedCommands;
+        joinForward: () => ChainedCommands;
+        keyboardShortcut: (name: string) => ChainedCommands;
+        lift: (typeOrName: string | import("prosemirror-model").NodeType, attributes?: Record<string, any> | undefined) => ChainedCommands;
+        liftEmptyBlock: () => ChainedCommands;
+        liftListItem: (typeOrName: string | import("prosemirror-model").NodeType) => ChainedCommands;
+        newlineInCode: () => ChainedCommands;
+        resetAttributes: (typeOrName: string | import("prosemirror-model").NodeType | import("prosemirror-model").MarkType, attributes: string | string[]) => ChainedCommands;
+        scrollIntoView: () => ChainedCommands;
+        selectAll: () => ChainedCommands;
+        selectNodeBackward: () => ChainedCommands;
+        selectNodeForward: () => ChainedCommands;
+        selectParentNode: () => ChainedCommands;
+        selectTextblockEnd: () => ChainedCommands;
+        selectTextblockStart: () => ChainedCommands;
+        setContent: (content: import("@tiptap/react").Content, emitUpdate?: boolean | undefined, parseOptions?: import("prosemirror-model").ParseOptions | undefined) => ChainedCommands;
+        setMark: (typeOrName: string | import("prosemirror-model").MarkType, attributes?: Record<string, any> | undefined) => ChainedCommands;
+        setMeta: (key: string, value: any) => ChainedCommands;
+        setNode: (typeOrName: string | import("prosemirror-model").NodeType, attributes?: Record<string, any> | undefined) => ChainedCommands;
+        setNodeSelection: (position: number) => ChainedCommands;
+        setTextSelection: (position: number | import("@tiptap/react").Range) => ChainedCommands;
+        sinkListItem: (typeOrName: string | import("prosemirror-model").NodeType) => ChainedCommands;
+        splitBlock: (options?: {
+            keepMarks?: boolean | undefined;
+        } | undefined) => ChainedCommands;
+        splitListItem: (typeOrName: string | import("prosemirror-model").NodeType) => ChainedCommands;
+        toggleList: (listTypeOrName: string | import("prosemirror-model").NodeType, itemTypeOrName: string | import("prosemirror-model").NodeType) => ChainedCommands;
+        toggleMark: (typeOrName: string | import("prosemirror-model").MarkType, attributes?: Record<string, any> | undefined, options?: {
+            extendEmptyMarkRange?: boolean | undefined;
+        } | undefined) => ChainedCommands;
+        toggleNode: (typeOrName: string | import("prosemirror-model").NodeType, toggleTypeOrName: string | import("prosemirror-model").NodeType, attributes?: Record<string, any> | undefined) => ChainedCommands;
+        toggleWrap: (typeOrName: string | import("prosemirror-model").NodeType, attributes?: Record<string, any> | undefined) => ChainedCommands;
+        undoInputRule: () => ChainedCommands;
+        unsetAllMarks: () => ChainedCommands;
+        unsetMark: (typeOrName: string | import("prosemirror-model").MarkType, options?: {
+            extendEmptyMarkRange?: boolean | undefined;
+        } | undefined) => ChainedCommands;
+        updateAttributes: (typeOrName: string | import("prosemirror-model").NodeType | import("prosemirror-model").MarkType, attributes: Record<string, any>) => ChainedCommands;
+        wrapIn: (typeOrName: string | import("prosemirror-model").NodeType, attributes?: Record<string, any> | undefined) => ChainedCommands;
+        wrapInList: (typeOrName: string | import("prosemirror-model").NodeType, attributes?: Record<string, any> | undefined) => ChainedCommands;
+    } & {
+        run: () => boolean;
+    } & Record<Property, (...options: any[]) => ChainedCommands>;
+    toggleBold: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    setHorizontalLine: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    setHardBreak: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    toggleHeading: ButtonFunction<{
+        level: any;
+    } & {
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    toggleStrike: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    activeHeadingValue: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, "paragraph" | 1 | 2 | 3 | 4 | 5 | 6>;
+    toggleBulletList: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    toggleNumberedList: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    insertUrl: ButtonFunction<{
+        url: string;
+    } & {
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    removeUrl: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    isButtonActive: ButtonFunction<{
+        nodeOrMark: NodeOrMarkList;
+        attributes?: Record<string, any> | undefined;
+    } & {
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    insertImage: ButtonFunction<{
+        src: unknown;
+        alt: string;
+        title: string;
+        sources?: Record<string, string> | undefined;
+    } & {
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    toggleItalic: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    toggleUnderline: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    toggleBlockQuote: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    toggleCodeBlock: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    toggleSubscript: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    toggleSuperscript: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    clearFormats: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    clearContents: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    setUndo: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    setRedo: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    setFontColor: ButtonFunction<{
+        color: string;
+    } & {
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    unsetFontColor: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    toggleHighlight: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    setHighlightColor: ButtonFunction<{
+        color?: string | undefined;
+    } & {
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    unsetHighlightColor: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    insertYoutubeVideo: ButtonFunction<{
+        src: string;
+        width?: number | undefined;
+        height?: number | undefined;
+        start?: number | undefined;
+    } & {
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    sinkListItem: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    canSink: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    liftListItem: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    canLift: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    getFontColorValue: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, string | undefined>;
+    getHighlightColorValue: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, string | undefined>;
+    getFontFamilyValue: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, string | undefined>;
+    setFontFamily: ButtonFunction<{
+        fontfamily?: string | undefined;
+    } & {
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    setTextAlignment: ButtonFunction<{
+        position: "left" | "right" | "center" | "justify";
+    } & {
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    unSetTextAlignment: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    isTextAlignmentValue: ButtonFunction<{
+        position: "left" | "right" | "center" | "justify";
+    } & {
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    insertTable: ButtonFunction<{
+        rows: number;
+        columns: number;
+        withHeader?: boolean | undefined;
+    } & {
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    deleteSelection: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    getAttributeValue: <T>(props: WithEditor & {
+        nodeOrMark: NodeOrMarkList;
+        attribute: string;
+    }) => T;
+    deleteTable: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    fixTables: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    mergeCells: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    splitCell: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    mergeOrSplit: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    setCellAttribute: ButtonFunction<{
+        cellAttr: "colspan" | "rowspan";
+        attrValue: number;
+    } & {
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    goToNextCell: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    goToPreviousCell: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    toggleHeaderColumn: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    toggleHeaderRow: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    toggleHeaderCell: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    insertColumnBefore: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    insertColumnAfter: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    deleteColumn: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    insertRowBefore: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    insertRowAfter: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    deleteRow: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    deleteNode: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    } & {
+        nodeOrMark: NodeOrMarkList;
+    }, boolean>;
+    setFontSize: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    } & {
+        fontSize: string;
+    }, boolean>;
+    getTextAlignmentValue: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, "left" | "right" | "center" | "justify">;
+    getFontSizeValue: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, string | undefined>;
+    inrceaseTextIndent: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    } & {
+        value?: number | undefined;
+        limit?: number | undefined;
+    }, boolean>;
+    decreaseTextIndent: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    } & {
+        value?: number | undefined;
+    }, boolean>;
+    toBase64: <T_1 extends Blob>(file: T_1, cb: (result: FileReader["result"]) => any) => void;
+    insertVideo: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    } & {
+        src: string;
+        title: string;
+        sources?: Record<string, string> | undefined;
+    }, boolean>;
+    toggleCode: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    setCode: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+    unsetCode: ButtonFunction<{
+        editor: import("@tiptap/react").Editor;
+    }, boolean>;
+};
+export default functions;
