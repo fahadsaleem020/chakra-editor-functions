@@ -21,12 +21,12 @@
     "commit": "cz"
   },
   "peerDependencies": {
-    "@retap/types": "^1.0.5",
+    "@retap/types": "^1.0.6",
     "@tiptap/react": "^2.0.0-beta.209",
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@retap/types": "^1.0.5",
+    "@retap/types": "^1.0.6",
     "@rollup/plugin-terser": "^0.4.0",
     "@tiptap/react": "^2.0.0-beta.209",
     "@types/react": "^18.0.26",
