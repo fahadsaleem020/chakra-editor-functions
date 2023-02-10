@@ -21,12 +21,12 @@
     "commit": "cz"
   },
   "peerDependencies": {
-    "@retap/types": "^1.0.8",
+    "@retap/types": "^1.0.10",
     "@tiptap/react": "^2.0.0-beta.217",
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@retap/types": "^1.0.8",
+    "@retap/types": "^1.0.10",
     "@rollup/plugin-terser": "^0.4.0",
     "@tiptap/react": "^2.0.0-beta.217",
     "@types/react": "^18.0.26",
@@ -36,6 +36,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^3.12.0",
+    "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-dts": "^5.1.1",
     "rollup-plugin-node-externals": "^5.1.2",
     "rollup-plugin-typescript2": "^0.34.1",
