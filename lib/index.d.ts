@@ -1,4 +1,4 @@
-import { ButtonFunction, NodeOrMarkList, WithEditor } from "@retap/types";
+import { ButtonFunction, NodeOrMarkList, WithEditor } from "@chakra-editor/types";
 import { ChainedCommands } from "@tiptap/react";
 export declare const toBase64: <T extends Blob>(file: T, cb: (result: FileReader["result"]) => any) => void;
 export declare const isExtension: <Property extends string = string, Object_1 extends Record<string, any> = object>(obj: Object_1, prop: Property, errorMessage?: string) => {
@@ -191,7 +191,7 @@ export declare const insertImage: ButtonFunction<{
 } & WithEditor>;
 export declare const activeHeadingValue: ButtonFunction<WithEditor, 1 | 2 | 3 | 4 | 5 | 6 | "paragraph">;
 export declare const getFontFamilyValue: ButtonFunction<WithEditor, string | undefined>;
-export declare const isButtonActive: ButtonFunction<{
+export declare const isNodeOrMarkActive: ButtonFunction<{
     nodeOrMark: NodeOrMarkList;
     attributes?: Record<string, any>;
 } & WithEditor>;
@@ -303,7 +303,7 @@ declare const functions: {
     removeUrl: ButtonFunction<{
         editor: import("@tiptap/react").Editor;
     }, boolean>;
-    isButtonActive: ButtonFunction<{
+    isNodeOrMarkActive: ButtonFunction<{
         nodeOrMark: NodeOrMarkList;
         attributes?: Record<string, any> | undefined;
     } & {
