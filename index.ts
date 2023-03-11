@@ -175,7 +175,7 @@ export const getTextAlignmentValue: ButtonFunction<
 > = ({ editor }) => {
   return getAttributeValue({
     editor,
-    nodeOrMark: isButtonActive({ editor, nodeOrMark: "heading" })
+    nodeOrMark: isNodeOrMarkActive({ editor, nodeOrMark: "heading" })
       ? "heading"
       : "paragraph",
     attribute: "textAlign",
@@ -447,7 +447,7 @@ export const getFontFamilyValue: ButtonFunction<
   string | undefined
 > = ({ editor }) => editor.getAttributes("textStyle").fontFamily;
 
-export const isButtonActive: ButtonFunction<
+export const isNodeOrMarkActive: ButtonFunction<
   {
     nodeOrMark: NodeOrMarkList;
     attributes?: Record<string, any>;
@@ -467,7 +467,7 @@ const functions = {
   toggleNumberedList,
   insertUrl,
   removeUrl,
-  isButtonActive,
+  isNodeOrMarkActive,
   insertImage,
   toggleItalic,
   toggleUnderline,
