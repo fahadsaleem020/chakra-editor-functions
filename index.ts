@@ -1,4 +1,8 @@
-import { ButtonFunction, NodeOrMarkList, WithEditor } from "@retap/types";
+import {
+  ButtonFunction,
+  NodeOrMarkList,
+  WithEditor,
+} from "@chakra-editor/types";
 import { ChainedCommands } from "@tiptap/react";
 
 export const toBase64 = <T extends Blob>(

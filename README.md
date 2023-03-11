@@ -1,1 +1,1 @@
-# functions for retap editor
+# functions for chakra editor
